@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import csv
 import os
 
-app = Flask(_name_, static_folder=".")
+app = Flask(__name__, static_folder=".")
 
 @app.route("/")
 def home():
