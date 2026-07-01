@@ -451,6 +451,115 @@
     color: var(--white);
   }
   footer .logo-ft span { color: var(--blue); }
+  footer .director {
+    font-size: 15px;
+    color: var(--soft);
+    margin: 10px 0 40px;
+  }
+  footer .director strong { color: var(--white); font-weight: 700; }
+
+  /* ── BIG CONTACT SECTION ── */
+  .contact-cta {
+    padding: 90px 0 70px;
+    text-align: center;
+    position: relative;
+    border-top: 1px solid var(--border);
+  }
+  .contact-glow {
+    position: absolute;
+    width: 700px; height: 350px;
+    background: radial-gradient(ellipse, rgba(59,130,246,0.15) 0%, transparent 70%);
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .contact-cta h2 {
+    font-size: clamp(28px, 4.5vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 14px;
+    position: relative;
+    z-index: 1;
+  }
+  .contact-cta h2 .accent {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-glow) 60%, #A78BFA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .contact-cta .contact-sub {
+    font-size: 16px;
+    color: var(--soft);
+    max-width: 42ch;
+    margin: 0 auto 48px;
+    position: relative;
+    z-index: 1;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .contact-card {
+    background: linear-gradient(180deg, var(--bg2) 0%, var(--bg3) 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 22px;
+    text-decoration: none;
+    transition: all .2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(59,130,246,0.12), transparent 60%);
+    opacity: 0;
+    transition: opacity .2s ease;
+  }
+  .contact-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--blue);
+    box-shadow: 0 12px 32px rgba(59,130,246,0.25);
+  }
+  .contact-card:hover::before { opacity: 1; }
+  .contact-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--blue-glow));
+    opacity: 0;
+    transition: opacity .2s ease;
+  }
+  .contact-card:hover::after { opacity: 1; }
+  .contact-card .c-label {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue-glow);
+    margin-bottom: 10px;
+    position: relative; z-index: 1;
+  }
+  .contact-card .c-value {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--white);
+    word-break: break-word;
+    position: relative; z-index: 1;
+  }
+
+  @media (max-width: 640px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
 
   @media (max-width: 640px) {
     .stats-grid { grid-template-columns: 1fr; }
@@ -655,10 +764,34 @@
   </div>
 </section>
 
+<!-- CONTACT -->
+<section class="contact-cta">
+  <div class="contact-glow"></div>
+  <div class="wrap">
+    <h2>Let's <span class="accent">connect.</span></h2>
+    <p class="contact-sub">Got a question or ready to start your campaign? Reach out any way that works for you.</p>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:brokenzuku@gmail.com">
+        <div class="c-label">Email</div>
+        <div class="c-value">brokenzuku@gmail.com</div>
+      </a>
+      <a class="contact-card" href="tel:+923078651922">
+        <div class="c-label">Phone</div>
+        <div class="c-value">0307 8651922</div>
+      </a>
+      <a class="contact-card" href="https://maps.google.com/?q=Lahore,Pakistan" target="_blank">
+        <div class="c-label">Address</div>
+        <div class="c-value">Lahore, Pakistan</div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
     <p class="logo-ft" style="margin-bottom:8px;">Rehan<span>Writes</span></p>
+    <p class="director">Director: <strong>Rehan Tahir</strong></p>
     <p>No scraped lists · No spam · Emails sent only to people who asked</p>
   </div>
 </footer>
