@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 import csv
 import os
 
-app = Flask(__name__, static_folder=".")
+app = Flask(_name_, static_folder=".")
 
 @app.route("/")
 def home():
@@ -19,5 +19,6 @@ def submit():
         writer.writerow(data)
     return jsonify({"status": "ok"})
 
-if __name__ == "__main__":
-    app.run(port=5000)
+if _name_ == "_main_":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
