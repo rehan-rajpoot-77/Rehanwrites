@@ -14,5 +14,6 @@ requests>=2.31.0
 # Note: imaplib, smtplib, email, csv are built into Python's standard
 # library -- no extra install needed for those.
 
-# Optional, only needed if you build a backend for the landing page form:
-# flask>=3.0.0
+# Backend for the landing page form:
+flask>=3.0.0
+gunicorn>=21.2.0
