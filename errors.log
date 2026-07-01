@@ -1,0 +1,1 @@
+2026-06-30 14:51:45 | ERROR | Sample generation failed, using fallback: 400 Client Error: Bad Request for url: https://api.groq.com/openai/v1/chat/completions

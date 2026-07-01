@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rehan Writes — Email Copy For Your Business</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #0A0C10;
+    --bg2:      #0F1218;
+    --bg3:      #151A22;
+    --border:   #1E2530;
+    --blue:     #3B82F6;
+    --blue-dim: #1D4ED8;
+    --blue-glow:#60A5FA;
+    --text:     #E8EDF5;
+    --muted:    #6B7585;
+    --soft:     #9AAABB;
+    --white:    #FFFFFF;
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ── GRID BACKGROUND ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+  .wrap-sm { max-width: 680px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+  /* ── NAV ── */
+  nav {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(10,12,16,0.92);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+  nav .inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .logo span { color: var(--blue); }
+  .nav-cta {
+    padding: 8px 18px;
+    background: var(--blue);
+    color: #fff;
+    border-radius: 6px;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .15s;
+  }
+  .nav-cta:hover { background: var(--blue-dim); }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 100px 0 80px;
+    text-align: center;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border: 1px solid rgba(59,130,246,0.3);
+    border-radius: 100px;
+    background: rgba(59,130,246,0.08);
+    font-size: 12.5px;
+    color: var(--blue-glow);
+    letter-spacing: 0.04em;
+    margin-bottom: 28px;
+  }
+  .badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--blue);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity:1; }
+    50% { opacity:0.3; }
+  }
+
+  h1 {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    max-width: 14ch;
+    margin: 0 auto 20px;
+  }
+  h1 .accent {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-glow) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 17.5px;
+    color: var(--soft);
+    max-width: 46ch;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    padding: 14px 28px;
+    background: var(--blue);
+    color: #fff;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all .15s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .btn-primary:hover {
+    background: var(--blue-dim);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(59,130,246,0.3);
+  }
+  .btn-ghost {
+    padding: 14px 28px;
+    background: transparent;
+    color: var(--soft);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all .15s;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--blue); color: var(--blue-glow); }
+
+  /* glow behind hero */
+  .glow-orb {
+    position: absolute;
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse, rgba(59,130,246,0.12) 0%, transparent 70%);
+    top: 80px; left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── STATS STRIP ── */
+  .stats {
+    padding: 40px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .stat {
+    text-align: center;
+    padding: 20px;
+    border-right: 1px solid var(--border);
+  }
+  .stat:last-child { border-right: none; }
+  .stat .num {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.03em;
+  }
+  .stat .num span { color: var(--blue); }
+  .stat .label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  /* ── WHAT YOU GET ── */
+  .section { padding: 80px 0; }
+  .section-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 14px;
+  }
+  .section h2 {
+    font-size: clamp(24px, 3.5vw, 36px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 14px;
+  }
+  .section-sub { font-size: 16px; color: var(--soft); max-width: 44ch; margin-bottom: 48px; }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .feat {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    transition: border-color .2s;
+  }
+  .feat:hover { border-color: rgba(59,130,246,0.4); }
+  .feat-icon {
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    background: rgba(59,130,246,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(59,130,246,0.2);
+  }
+  .feat h3 { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+  .feat p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  /* ── PRICING ── */
+  .pricing-section {
+    padding: 80px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  .price-card {
+    max-width: 440px;
+    margin: 40px auto 0;
+    background: var(--bg2);
+    border: 1px solid rgba(59,130,246,0.3);
+    border-radius: 16px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .price-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--blue-glow));
+  }
+  .price-tag {
+    font-size: 52px;
+    font-weight: 800;
+    color: var(--white);
+    letter-spacing: -0.03em;
+    margin-bottom: 4px;
+  }
+  .price-tag sup { font-size: 28px; vertical-align: top; margin-top: 12px; color: var(--blue); }
+  .price-note { font-size: 13.5px; color: var(--muted); margin-bottom: 28px; }
+  .price-features { text-align: left; margin-bottom: 28px; }
+  .pf {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14.5px;
+    color: var(--soft);
+  }
+  .pf:last-child { border-bottom: none; }
+  .pf::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; }
+
+  /* ── PROCESS ── */
+  .process-section {
+    padding: 80px 0;
+    border-top: 1px solid var(--border);
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0;
+    margin-top: 48px;
+    position: relative;
+  }
+  .step-item {
+    padding: 24px 28px;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+  .step-item:last-child { border-right: none; }
+  .step-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--blue);
+    margin-bottom: 12px;
+  }
+  .step-item h3 { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+  .step-item p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+
+  /* ── FORM SECTION ── */
+  .form-section {
+    padding: 80px 0 100px;
+    border-top: 1px solid var(--border);
+  }
+  .form-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 520px;
+    margin: 40px auto 0;
+    position: relative;
+  }
+  .form-card h3 { font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+  .form-card .sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
+
+  .field { margin-bottom: 16px; }
+  .field label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .field input, .field select {
+    width: 100%;
+    padding: 12px 14px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 15px;
+    font-family: inherit;
+    transition: border-color .15s;
+  }
+  .field input::placeholder { color: var(--muted); }
+  .field input:focus, .field select:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
+  }
+  .field select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='11' height='7' viewBox='0 0 11 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5.5 5.5L10 1' stroke='%236B7585' stroke-width='1.3'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-color: var(--bg3);
+    padding-right: 36px;
+    color: var(--text);
+  }
+  .field select option { background: var(--bg3); color: var(--text); }
+
+  button.submit-btn {
+    width: 100%;
+    margin-top: 8px;
+    padding: 14px;
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .15s;
+    font-family: inherit;
+  }
+  button.submit-btn:hover {
+    background: var(--blue-dim);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(59,130,246,0.3);
+  }
+  .fineprint {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  /* success */
+  .success { text-align: center; padding: 20px 0; }
+  .check-circle {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: rgba(59,130,246,0.12);
+    border: 1px solid rgba(59,130,246,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    color: var(--blue-glow);
+    margin: 0 auto 20px;
+  }
+  .success h3 { font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+  .success p { font-size: 14.5px; color: var(--muted); }
+  .success strong { color: var(--blue-glow); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  footer p { font-size: 13px; color: var(--muted); }
+  footer .logo-ft {
+    font-family: 'Cinzel', serif;
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  footer .logo-ft span { color: var(--blue); }
+
+  @media (max-width: 640px) {
+    .stats-grid { grid-template-columns: 1fr; }
+    .stat { border-right: none; border-bottom: 1px solid var(--border); }
+    .stat:last-child { border-bottom: none; }
+    .steps { grid-template-columns: 1fr; }
+    .step-item { border-right: none; border-bottom: 1px solid var(--border); }
+    .step-item:last-child { border-bottom: none; }
+    .form-card { padding: 28px 20px; }
+    .price-card { padding: 28px 20px; }
+    nav .inner { flex-wrap: wrap; gap: 12px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="inner">
+    <div class="logo">Rehan<span>Writes</span></div>
+    <a class="nav-cta" href="#get-samples">Get Free Samples</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="position:relative;">
+  <div class="glow-orb"></div>
+  <div class="wrap">
+    <div class="hero">
+      <div class="badge">Email Copywriting Service</div>
+      <h1>Emails that actually get <span class="accent">replies.</span></h1>
+      <p class="hero-sub">I write short, honest email campaigns for small businesses. No buzzwords. No fake countdowns. Just copy that sounds like a real person wrote it.</p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="#get-samples">Get 3 Free Samples</a>
+        <a class="btn-ghost" href="#pricing">See Pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="num">3<span>×</span></div>
+        <div class="label">Free sample emails</div>
+      </div>
+      <div class="stat">
+        <div class="num">30</div>
+        <div class="label">Emails in full campaign</div>
+      </div>
+      <div class="stat">
+        <div class="num"><span>$</span>100</div>
+        <div class="label">One-time project fee</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">What You Get</div>
+    <h2>Everything your inbox needs</h2>
+    <p class="section-sub">A complete, ready-to-send email sequence — written for your business, not copy-pasted from a template.</p>
+    <div class="features">
+      <div class="feat">
+        <div class="feat-icon">✉️</div>
+        <h3>30 Custom Emails</h3>
+        <p>Welcome series, value-building content, soft CTAs, and a final offer — all written in your brand's voice.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">📄</div>
+        <h3>PDF Delivery</h3>
+        <p>All emails delivered as a professionally formatted PDF you can paste into Mailchimp, ConvertKit, or any tool.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🎯</div>
+        <h3>3 Free Samples First</h3>
+        <p>See the quality before you pay anything. Get three emails written for your business — completely free, no card required.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🔄</div>
+        <h3>1 Free Revision</h3>
+        <p>If the tone or style isn't right, I'll revise the campaign once at no extra charge after you've reviewed.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">⚡</div>
+        <h3>24–48hr Delivery</h3>
+        <p>Full 30-email campaign delivered within 24–48 hours of payment confirmation. No waiting weeks.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🛡️</div>
+        <h3>Pay After You Agree</h3>
+        <p>You only get an invoice after you've seen the free samples and explicitly said you want to go ahead.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="wrap">
+    <div class="section-label">How It Works</div>
+    <h2>Simple. No surprises.</h2>
+    <div class="steps">
+      <div class="step-item">
+        <div class="step-num">STEP 01</div>
+        <h3>Fill the form</h3>
+        <p>Share your name, email, business name, and what you do. Takes two minutes.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">STEP 02</div>
+        <h3>Get free samples</h3>
+        <p>Receive 3 custom-written emails for your business. No charge, no catch.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">STEP 03</div>
+        <h3>Reply if interested</h3>
+        <p>Like what you see? Reply "interested" and we'll discuss your campaign needs.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">STEP 04</div>
+        <h3>Pay & receive</h3>
+        <p>Invoice sent only after you confirm. Full campaign delivered within 24–48 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="wrap">
+    <div class="section-label">Pricing</div>
+    <h2>One price. Everything included.</h2>
+    <p class="section-sub" style="margin:12px auto 0; text-align:center;">No hidden fees. No monthly subscriptions. Just one clean project fee.</p>
+    <div class="price-card">
+      <div class="price-tag"><sup>$</sup>100</div>
+      <div class="price-note">One-time · Invoice after confirmation</div>
+      <div class="price-features">
+        <div class="pf">30 custom-written emails for your business</div>
+        <div class="pf">Professionally formatted PDF delivery</div>
+        <div class="pf">Welcome, value, trust-building & CTA sequence</div>
+        <div class="pf">1 free revision round included</div>
+        <div class="pf">Delivered in 24–48 hours</div>
+        <div class="pf">3 free samples before you commit</div>
+      </div>
+      <a class="btn-primary" href="#get-samples" style="display:block; text-align:center;">Start with Free Samples</a>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="get-samples">
+  <div class="wrap-sm">
+    <div style="text-align:center;">
+      <div class="section-label">Get Started</div>
+      <h2>See the quality first — free.</h2>
+      <p class="section-sub" style="margin: 12px auto 0; text-align:center;">Fill in your details and get 3 sample emails written for your business today. No credit card. No commitment.</p>
+    </div>
+    <div class="form-card" id="formCard">
+      <h3>Get 3 free sample emails</h3>
+      <p class="sub">Usually delivered within 30 minutes.</p>
+      <form id="signupForm">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" placeholder="Rehan Tahir" required>
+        </div>
+        <div class="field">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="you@yourbusiness.com" required>
+        </div>
+        <div class="field">
+          <label for="business_name">Business name</label>
+          <input type="text" id="business_name" name="business_name" placeholder="Acme Co." required>
+        </div>
+        <div class="field">
+          <label for="niche">What you do</label>
+          <select id="niche" name="niche" required>
+            <option value="" disabled selected>Select your industry…</option>
+            <option value="SaaS / Tech">Software / Technology</option>
+            <option value="E-commerce">Online store / E-commerce</option>
+            <option value="Professional Services">Law, accounting, consulting</option>
+            <option value="Health & Wellness">Health & wellness</option>
+            <option value="Education / Coaching">Education / coaching</option>
+            <option value="Real Estate">Real estate</option>
+            <option value="Food & Hospitality">Restaurant / hospitality</option>
+            <option value="Creative / Agency">Creative / agency</option>
+            <option value="Nonprofit">Nonprofit</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">Send Me the Free Samples →</button>
+      </form>
+      <p class="fineprint">No spam. Unsubscribe anytime. We never share your data.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <p class="logo-ft" style="margin-bottom:8px;">Rehan<span>Writes</span></p>
+    <p>No scraped lists · No spam · Emails sent only to people who asked</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('signupForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(this).entries());
+  if (!data.email || !data.email.includes('@')) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+  const btn = this.querySelector('button');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch('/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error('Server error');
+    document.getElementById('formCard').innerHTML = `
+      <div class="success">
+        <div class="check-circle">✓</div>
+        <h3>You're all set, ${data.name}!</h3>
+        <p>Check <strong>${data.email}</strong> shortly — your 3 free sample emails are on the way.</p>
+      </div>`;
+  } catch (err) {
+    btn.textContent = 'Send Me the Free Samples →';
+    btn.disabled = false;
+    alert('Could not reach the server. Make sure server.py is running, then try again.');
+  }
+});
+</script>
+
+</body>
+</html>

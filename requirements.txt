@@ -1,0 +1,18 @@
+# Opt-In Email Sample Generator
+# Install with: pip install -r requirements.txt
+
+# AI Content Generation
+groq>=0.9.0
+openai>=1.0.0
+
+# PDF Generation
+reportlab>=4.0.0
+
+# HTTP requests (for Groq API calls)
+requests>=2.31.0
+
+# Note: imaplib, smtplib, email, csv are built into Python's standard
+# library -- no extra install needed for those.
+
+# Optional, only needed if you build a backend for the landing page form:
+# flask>=3.0.0
